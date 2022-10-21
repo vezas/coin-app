@@ -1,0 +1,17 @@
+.coinItem {
+  justify-content: space-around;
+}
+
+.coinItem__logo {
+  display: block;
+  height: 6vh;
+}
+
+.coinItem__header {
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.coinItem__price {
+  font-size: 1rem;
+}
