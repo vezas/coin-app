@@ -1,37 +1,40 @@
-import { useCallback, useEffect, useState } from 'react';
-
-import classes from 'components/coin/coinsList/CoinItem.module.css';
+import React, { useState } from 'react';
 import { Card } from 'components/UI/Card';
+import { Modal } from 'components/UI/Modal';
+import { Coin } from 'components/coin/Coin';
+import classes from 'components/coin/coinsList/CoinItem.module.css';
 
 interface InterfaceCoinItem {
   children?: React.ReactNode;
-  coin: string;
+  id: string;
+  name: string;
+  url: string;
+  currentPrice: string;
 }
 
-export const CoinItem: React.FC<InterfaceCoinItem> = ({ coin }) => {
-  const [coinInfo, setcoinInfo] = useState<string[]>([]);
+export const CoinItem: React.FC<InterfaceCoinItem> = ({ name, url, currentPrice, id }) => {
+  const [isModal, setIsModal] = useState(false);
 
-  const fetchCoinInfoHandler: () => Promise<void> = useCallback(async () => {
-    const response = await fetch(
-      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coin}&order=market_cap_desc&per_page=100&page=1&sparkline=false`
-    );
-    const data = await response.json();
-    console.log(data[0].ath);
-    const { image: url, name, current_price: price } = data[0];
-    console.log(data[0]);
+  const onClick = () => {
+    setIsModal(false);
+  };
 
-    setcoinInfo([url, name, price]);
-  }, []);
-
-  useEffect(() => {
-    fetchCoinInfoHandler();
-  }, [fetchCoinInfoHandler]);
+  const displayCoinInfo = () => {
+    setIsModal(true);
+  };
 
   return (
-    <Card className={classes.coinItem}>
-      <img className={classes.coinItem__logo} src={coinInfo[0]} alt='Logo with coin.' />
-      <h1 className={classes.coinItem__header}>{coinInfo[1]}</h1>
-      <h3 className={classes.coinItem__price}>{coinInfo[2]}</h3>
-    </Card>
+    <React.Fragment>
+      <Card className={classes.coinItem} onClick={displayCoinInfo}>
+        <img className={classes.coinItem__logo} src={url} alt='Logo with coin.' />
+        <h1 className={classes.coinItem__header}>{name}</h1>
+        <h3 className={classes.coinItem__price}>{currentPrice} $</h3>
+      </Card>
+      {isModal && (
+        <Modal onClick={onClick}>
+          <Coin id={id} />
+        </Modal>
+      )}
+    </React.Fragment>
   );
 };

@@ -1,0 +1,4 @@
+.coinsList {
+  display: flex;
+  flex-wrap: wrap;
+}
