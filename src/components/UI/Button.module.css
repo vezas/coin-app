@@ -1,0 +1,19 @@
+.btn {
+  z-index: 100;
+  position: absolute;
+  top: 80vh;
+  width: 20vw;
+  height: 5vh;
+  background-color: #fff;
+  border: none;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background-color: #fff;
+  cursor: pointer;
+}

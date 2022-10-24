@@ -1,13 +1,9 @@
-.coinItem {
-  justify-content: space-around;
-}
-.coinItem:hover {
-  transform: none;
-}
-
 .coinItem__logo {
+  position: absolute;
+  top: 5%;
+  /* left: 5%; */
   display: block;
-  height: 6vh;
+  height: 20vh;
 }
 
 .coinItem__header {
