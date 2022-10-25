@@ -6,16 +6,11 @@ import classes from 'components/UI/Modal.module.css';
 
 interface InterfaceModal {
   children: React.ReactNode;
-  isModal: boolean;
   onClick?: () => void;
 }
 
-export const Modal: React.FC<InterfaceModal> = ({ children, isModal, onClick }) => {
+export const Modal: React.FC<InterfaceModal> = ({ children, onClick }) => {
   const modalRoot: HTMLElement = document.getElementById('modal-root')!;
-  if (!isModal) {
-    return null;
-  }
-
   return ReactDOM.createPortal(
     <React.Fragment>
       <div onClick={onClick} className={`${classes.modal} ${classes.modal__background}`} />

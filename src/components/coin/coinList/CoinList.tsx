@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { CoinItem } from 'components/coin/coinsList/CoinItem';
-import classes from 'components/coin/coinsList/CoinList.module.css';
+import { CoinItem } from 'components/coin/coinList/CoinItem';
+import classes from 'components/coin/coinList/CoinList.module.css';
 
 export const CoinList: React.FC = () => {
   const [coinsList, setCoinsList] = useState([]);
@@ -41,7 +41,7 @@ export const CoinList: React.FC = () => {
 
   return (
     <React.Fragment>
-      <ul className={classes.coinsList}>
+      <ul className={classes.coinList}>
         {coinsList.map((coin: any) => {
           return (
             <CoinItem key={coin.id} id={coin.id} name={coin.name} url={coin.url} currentPrice={coin.currentPrice} />

@@ -1,5 +1,5 @@
 import classes from 'App.module.css';
-import { CoinList } from 'components/coin/coinsList/CoinList';
+import { CoinList } from 'components/coin/coinList/CoinList';
 
 export const App: React.FC = () => {
   return (
