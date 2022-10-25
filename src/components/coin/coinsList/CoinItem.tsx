@@ -31,7 +31,7 @@ export const CoinItem: React.FC<InterfaceCoinItem> = ({ name, url, currentPrice,
         <h3 className={classes.coinItem__price}>{currentPrice} $</h3>
       </Card>
       {isModal && (
-        <Modal onClick={onClick}>
+        <Modal onClick={onClick} isModal={isModal}>
           <Coin id={id} />
         </Modal>
       )}

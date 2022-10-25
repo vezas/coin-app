@@ -12,8 +12,7 @@ export const Coin: React.FC<InterfaceCoin> = ({ id }) => {
 
   const fetchCoinInfoHandler: () => Promise<void> = useCallback(async () => {
     try {
-      const response = await fetch(`https://api.cingecko.com/api/v3/coins/${id}`);
-      console.log(response);
+      const response = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`);
       if (!response.ok) {
         throw new Error('Sth went wrong...');
       }
