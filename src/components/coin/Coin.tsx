@@ -1,16 +1,22 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import classes from 'components/coin/Coin.module.css';
-import { coinGeckoApi } from 'services/api.service';
+import React, { useCallback, useEffect, useState } from 'react'
+import classes from 'components/coin/Coin.module.css'
+import { coinGeckoApi } from 'services/api.service'
 
 interface InterfaceCoin {
-  id: string;
+  id: string
+}
+
+interface ApiResponse {
+  image: { large: string }
+  name: string
+  market_data: { current_price: { usd: string }; ath: { usd: string } }
 }
 
 export const Coin: React.FC<InterfaceCoin> = ({ id }) => {
-  const [coinInfo, setcoinInfo] = useState({ url: '', name: '', price: '', ath: '' });
+  const [coinInfo, setcoinInfo] = useState({ url: '', name: '', price: '', ath: '' })
 
   const fetchCoinInfoHandler = useCallback(async () => {
-    const data: any = await coinGeckoApi.get(`coins/${id}`);
+    const data: ApiResponse = await coinGeckoApi.get(`coins/${id}`)
 
     const {
       image: { large: url },
@@ -21,13 +27,13 @@ export const Coin: React.FC<InterfaceCoin> = ({ id }) => {
       market_data: {
         ath: { usd: ath }
       }
-    } = data;
-    setcoinInfo({ url, name, price, ath });
-  }, [id]);
+    } = data
+    setcoinInfo({ url, name, price, ath })
+  }, [id])
 
   useEffect(() => {
-    fetchCoinInfoHandler();
-  }, [fetchCoinInfoHandler]);
+    fetchCoinInfoHandler()
+  }, [fetchCoinInfoHandler])
 
   return (
     <React.Fragment>
@@ -37,5 +43,5 @@ export const Coin: React.FC<InterfaceCoin> = ({ id }) => {
       <h3 className={classes.coinItem__price}>All time high: {coinInfo.ath} $</h3>
       <p>And so on...</p>
     </React.Fragment>
-  );
-};
+  )
+}
