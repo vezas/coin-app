@@ -5,9 +5,7 @@ const createAxiosInstance = (baseURL: string) => {
   const instance = axios.create({ baseURL });
 
   instance.interceptors.response.use(
-    (response) => {
-      return response.data;
-    },
+    (response) => response.data,
     (error) => {
       toast.error(error.message, {
         position: 'bottom-right',
