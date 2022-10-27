@@ -1,6 +1,7 @@
 .coinItem {
   justify-content: space-around;
   flex-basis: 150px;
+  cursor: pointer;
 }
 
 .coinItem__logo {
