@@ -1,16 +1,16 @@
-import ReactDOM from 'react-dom'
-import React from 'react'
-import { Card } from 'components/UI/Card'
-import { Button } from 'components/UI/Button'
-import classes from 'components/UI/Modal.module.css'
+import ReactDOM from 'react-dom';
+import React from 'react';
+import { Card } from 'components/UI/Card';
+import { Button } from 'components/UI/Button';
+import classes from 'components/UI/Modal.module.css';
 
 interface InterfaceModal {
-  children: React.ReactNode
-  onClick?: () => void
+  children: React.ReactNode;
+  onClick?: () => void;
 }
 
 export const Modal: React.FC<InterfaceModal> = ({ children, onClick }) => {
-  const modalRoot: HTMLElement = document.getElementById('modal-root')!
+  const modalRoot: HTMLElement = document.getElementById('modal-root')!;
   return ReactDOM.createPortal(
     <React.Fragment>
       <div onClick={onClick} className={`${classes.modal} ${classes.modal__background}`} />
@@ -21,6 +21,6 @@ export const Modal: React.FC<InterfaceModal> = ({ children, onClick }) => {
         </Button>
       </Card>
     </React.Fragment>,
-    modalRoot,
-  )
-}
+    modalRoot
+  );
+};

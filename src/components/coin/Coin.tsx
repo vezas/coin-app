@@ -1,24 +1,24 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import classes from 'components/coin/Coin.module.css'
-import { coinGeckoApi } from 'services/api.service'
+import React, { useCallback, useEffect, useState } from 'react';
+import classes from 'components/coin/Coin.module.css';
+import { coinGeckoApi } from 'services/api.service';
 
 interface InterfaceCoin {
-  id: string
+  id: string;
 }
 
 interface ApiResponse {
-  image: { large: string }
-  name: string
-  market_data: { current_price: { usd: string }; ath: { usd: string } }
+  image: { large: string };
+  name: string;
+  market_data: { current_price: { usd: string }; ath: { usd: string } };
 }
 
 export const Coin: React.FC<InterfaceCoin> = ({ id }) => {
-  const [coinInfo, setcoinInfo] = useState({ url: '', name: '', price: '', ath: '' })
-  const [isLoading, setIsLoading] = useState(false)
+  const [coinInfo, setcoinInfo] = useState({ url: '', name: '', price: '', ath: '' });
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchCoinInfoHandler = useCallback(async () => {
-    setIsLoading(true)
-    const data: ApiResponse = await coinGeckoApi.get(`coins/${id}`)
+    setIsLoading(true);
+    const data: ApiResponse = await coinGeckoApi.get(`coins/${id}`);
     const {
       image: { large: url },
       name,
@@ -28,21 +28,21 @@ export const Coin: React.FC<InterfaceCoin> = ({ id }) => {
       market_data: {
         ath: { usd: ath }
       }
-    } = data
-    setcoinInfo({ url, name, price, ath })
-    setIsLoading(false)
-  }, [id])
+    } = data;
+    setcoinInfo({ url, name, price, ath });
+    setIsLoading(false);
+  }, [id]);
 
   useEffect(() => {
-    fetchCoinInfoHandler()
-  }, [fetchCoinInfoHandler])
+    fetchCoinInfoHandler();
+  }, [fetchCoinInfoHandler]);
 
   return (
     <React.Fragment>
       {isLoading && <p className={classes.coinItem_isLoading}>Loading...</p>}
       {!isLoading && (
         <div>
-          <img className={classes.coinItem__logo} src={coinInfo.url} alt='Logo with coin.' />
+          <img className={classes.coinItem__logo} src={coinInfo.url} alt='Logo.' />
           <h1 className={classes.coinItem__header}>{coinInfo.name}</h1>
           <h3 className={classes.coinItem__price}>Current price: {coinInfo.price} $</h3>
           <h3 className={classes.coinItem__price}>All time high: {coinInfo.ath} $</h3>
@@ -50,5 +50,5 @@ export const Coin: React.FC<InterfaceCoin> = ({ id }) => {
         </div>
       )}
     </React.Fragment>
-  )
-}
+  );
+};
