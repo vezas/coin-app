@@ -3,7 +3,7 @@ import { Oval } from 'react-loader-spinner';
 import classes from 'components/coin/Coin.module.css';
 import { coinGeckoApi } from 'services/api.service';
 
-interface InterfaceCoin {
+interface InterfaceCoinProps {
   id: string;
 }
 
@@ -13,8 +13,8 @@ interface ApiResponse {
   market_data: { current_price: { usd: string }; ath: { usd: string } };
 }
 
-export const Coin: React.FC<InterfaceCoin> = ({ id }) => {
-  const [coinInfo, setcoinInfo] = useState({ url: '', name: '', price: '', ath: '' });
+export const Coin: React.FC<InterfaceCoinProps> = ({ id }) => {
+  const [coinInfo, setcoinInfo] = useState({ url: '', name: '', price: '', allTimeHighPrice: '' });
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchCoinInfoHandler = useCallback(async () => {
@@ -27,10 +27,10 @@ export const Coin: React.FC<InterfaceCoin> = ({ id }) => {
         current_price: { usd: price }
       },
       market_data: {
-        ath: { usd: ath }
+        ath: { usd: allTimeHighPrice }
       }
     } = data;
-    setcoinInfo({ url, name, price, ath });
+    setcoinInfo({ url, name, price, allTimeHighPrice });
     setIsLoading(false);
   }, [id]);
 
@@ -59,7 +59,7 @@ export const Coin: React.FC<InterfaceCoin> = ({ id }) => {
           <img className={classes.coinItem__logo} src={coinInfo.url} alt='Logo.' />
           <h1 className={classes.coinItem__header}>{coinInfo.name}</h1>
           <h3 className={classes.coinItem__price}>Current price: {coinInfo.price} $</h3>
-          <h3 className={classes.coinItem__price}>All time high: {coinInfo.ath} $</h3>
+          <h3 className={classes.coinItem__price}>All time high: {coinInfo.allTimeHighPrice} $</h3>
           <p>And so on...</p>
         </div>
       )}

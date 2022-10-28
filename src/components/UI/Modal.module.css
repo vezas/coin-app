@@ -1,9 +1,4 @@
-.modal:hover {
-  transform: none;
-}
-
-.card__modal {
-  position: relative;
+.modal__content {
   position: fixed;
   margin: 0;
   top: 5%;
@@ -13,7 +8,7 @@
   height: 90vh;
   width: 90vw;
   max-width: none;
-  z-index: 10;
+  z-index: 1;
   border-radius: 10px;
 }
 
@@ -24,4 +19,9 @@
   left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal__btn {
+  position: absolute;
+  bottom: 5%;
 }

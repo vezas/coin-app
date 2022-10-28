@@ -4,7 +4,7 @@ import { Modal } from 'components/UI/Modal';
 import { Coin } from 'components/coin/Coin';
 import classes from 'components/coin/coinList/CoinItem.module.css';
 
-interface InterfaceCoinItem {
+interface InterfaceCoinItemProps {
   children?: React.ReactNode;
   id: string;
   name: string;
@@ -12,7 +12,7 @@ interface InterfaceCoinItem {
   currentPrice: string;
 }
 
-export const CoinItem: React.FC<InterfaceCoinItem> = ({ name, url, currentPrice, id }) => {
+export const CoinItem: React.FC<InterfaceCoinItemProps> = ({ name, url, currentPrice, id }) => {
   const [isModal, setIsModal] = useState(false);
 
   const onClick = () => {

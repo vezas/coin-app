@@ -1,7 +1,7 @@
 import classes from 'components/UI/Button.module.css';
 import clsx from 'clsx';
 
-interface InterfaceButton
+interface InterfaceButtonProps
   extends Omit<
     React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>,
     'onClick'
@@ -12,7 +12,7 @@ interface InterfaceButton
   onClick?: () => void;
 }
 
-export const Button: React.FC<InterfaceButton> = ({
+export const Button: React.FC<InterfaceButtonProps> = ({
   children,
   className,
   onClick,
