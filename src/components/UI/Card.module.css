@@ -12,7 +12,3 @@
   overflow: hidden;
   transition: 0.2s;
 }
-
-.card:hover {
-  transform: scale(1.1);
-}

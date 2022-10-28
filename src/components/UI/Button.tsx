@@ -1,4 +1,5 @@
 import classes from 'components/UI/Button.module.css';
+import clsx from 'clsx';
 
 interface InterfaceButton
   extends Omit<
@@ -19,7 +20,7 @@ export const Button: React.FC<InterfaceButton> = ({
   ...props
 }) => {
   return (
-    <button {...props} className={`${classes.btn} ${className}`} type={type} onClick={onClick}>
+    <button {...props} className={clsx([classes.btn], [className])} type={type} onClick={onClick}>
       {children}
     </button>
   );

@@ -2,7 +2,7 @@
   position: absolute;
   top: 5%;
   display: block;
-  height: 20vh;
+  width: 120px;
 }
 
 .coinItem__header {

@@ -1,11 +1,10 @@
 .coinItem {
   justify-content: space-around;
-  flex-basis: 150px;
   cursor: pointer;
+  width: 150px;
 }
 
 .coinItem__logo {
-  display: block;
   height: 6vh;
 }
 
@@ -15,5 +14,9 @@
 }
 
 .coinItem__price {
-  font-size: 1rem;
+  font-size: 1.3rem;
+}
+
+.coinItem:hover {
+  transform: scale(1.1);
 }

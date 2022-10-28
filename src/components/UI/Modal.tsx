@@ -3,6 +3,7 @@ import React from 'react';
 import { Card } from 'components/UI/Card';
 import { Button } from 'components/UI/Button';
 import classes from 'components/UI/Modal.module.css';
+import clsx from 'clsx';
 
 interface InterfaceModal {
   children: React.ReactNode;
@@ -15,7 +16,7 @@ export const Modal: React.FC<InterfaceModal> = ({ children, onClick }) => {
   return ReactDOM.createPortal(
     <React.Fragment>
       <div onClick={onClick} className={`${classes.modal} ${classes.modal__background}`} />
-      <Card className={`${classes.modal} ${classes.card__modal}`}>
+      <Card className={clsx([classes.modal], [classes.card__modal])}>
         {children}
         <Button onClick={onClick} type='submit'>
           Close

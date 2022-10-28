@@ -1,12 +1,9 @@
-.modal {
-  position: relative;
-}
-
 .modal:hover {
   transform: none;
 }
 
 .card__modal {
+  position: relative;
   position: fixed;
   margin: 0;
   top: 5%;
