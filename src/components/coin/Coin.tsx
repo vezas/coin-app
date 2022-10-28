@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { Oval } from 'react-loader-spinner';
 import classes from 'components/coin/Coin.module.css';
 import { coinGeckoApi } from 'services/api.service';
 
@@ -39,7 +40,20 @@ export const Coin: React.FC<InterfaceCoin> = ({ id }) => {
 
   return (
     <React.Fragment>
-      {isLoading && <p className={classes.coinItem_isLoading}>Loading...</p>}
+      {isLoading && (
+        <Oval
+          height={80}
+          width={80}
+          color='#4fa94d'
+          wrapperStyle={{}}
+          wrapperClass=''
+          visible={true}
+          ariaLabel='oval-loading'
+          secondaryColor='#4fa94d'
+          strokeWidth={2}
+          strokeWidthSecondary={2}
+        />
+      )}
       {!isLoading && (
         <div>
           <img className={classes.coinItem__logo} src={coinInfo.url} alt='Logo.' />

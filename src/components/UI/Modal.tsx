@@ -10,6 +10,7 @@ interface InterfaceModal {
 }
 
 export const Modal: React.FC<InterfaceModal> = ({ children, onClick }) => {
+  //eslint-disable-next-line
   const modalRoot: HTMLElement = document.getElementById('modal-root')!;
   return ReactDOM.createPortal(
     <React.Fragment>

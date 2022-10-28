@@ -25,11 +25,13 @@ export const CoinItem: React.FC<InterfaceCoinItem> = ({ name, url, currentPrice,
 
   return (
     <React.Fragment>
-      <Card className={classes.coinItem} onClick={displayCoinInfo}>
-        <img className={classes.coinItem__logo} src={url} alt='Logo.' />
-        <h1 className={classes.coinItem__header}>{name}</h1>
-        <h3 className={classes.coinItem__price}>{currentPrice} $</h3>
-      </Card>
+      <li>
+        <Card className={classes.coinItem} onClick={displayCoinInfo}>
+          <img className={classes.coinItem__logo} src={url} alt='Logo.' />
+          <h1 className={classes.coinItem__header}>{name}</h1>
+          <h3 className={classes.coinItem__price}>{currentPrice} $</h3>
+        </Card>
+      </li>
       {isModal && (
         <Modal onClick={onClick}>
           <Coin id={id} />
