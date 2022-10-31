@@ -28,7 +28,7 @@ export const CoinItem: React.FC<InterfaceCoinItemProps> = ({ name, url, currentP
       <li>
         <Card className={classes.coinItem} onClick={displayCoinInfo}>
           <img className={classes.coinItem__logo} src={url} alt='Logo.' />
-          <h1 className={classes.coinItem__header}>{name}</h1>
+          <h1 className={classes.coinItem__title}>{name}</h1>
           <h3 className={classes.coinItem__price}>{currentPrice} $</h3>
         </Card>
       </li>

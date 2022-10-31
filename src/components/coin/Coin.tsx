@@ -1,10 +1,17 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Oval } from 'react-loader-spinner';
-import classes from 'components/coin/Coin.module.scss';
 import { coinGeckoApi } from 'services/api.service';
+import classes from 'components/coin/Coin.module.scss';
 
 interface InterfaceCoinProps {
   id: string;
+}
+
+interface InterfaceCoinInfo {
+  url: string;
+  name: string;
+  price: string;
+  allTimeHighPrice: string;
 }
 
 interface ApiResponse {
@@ -14,7 +21,7 @@ interface ApiResponse {
 }
 
 export const Coin: React.FC<InterfaceCoinProps> = ({ id }) => {
-  const [coinInfo, setcoinInfo] = useState({ url: '', name: '', price: '', allTimeHighPrice: '' });
+  const [coinInfo, setcoinInfo] = useState<InterfaceCoinInfo | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchCoinInfoHandler = useCallback(async () => {
@@ -42,8 +49,8 @@ export const Coin: React.FC<InterfaceCoinProps> = ({ id }) => {
     <React.Fragment>
       {isLoading && (
         <Oval
-          height={80}
-          width={80}
+          height={20}
+          width={20}
           color='#4fa94d'
           wrapperStyle={{}}
           wrapperClass=''
@@ -54,14 +61,14 @@ export const Coin: React.FC<InterfaceCoinProps> = ({ id }) => {
           strokeWidthSecondary={2}
         />
       )}
-      {!isLoading && (
-        <div>
-          <img className={classes.coinItem__logo} src={coinInfo.url} alt='Logo.' />
-          <h1 className={classes.coinItem__header}>{coinInfo.name}</h1>
-          <h3 className={classes.coinItem__price}>Current price: {coinInfo.price} $</h3>
-          <h3 className={classes.coinItem__price}>All time high: {coinInfo.allTimeHighPrice} $</h3>
+      {!isLoading && coinInfo && (
+        <section className={classes.coin}>
+          <img className={classes.coin__logo} src={coinInfo.url} alt='Logo.' />
+          <h1 className={classes.coin__title}>{coinInfo.name}</h1>
+          <h3 className={classes.coin__price}>Current price: {coinInfo.price} $</h3>
+          <h3 className={classes.coin__price}>All time high: {coinInfo.allTimeHighPrice} $</h3>
           <p>And so on...</p>
-        </div>
+        </section>
       )}
     </React.Fragment>
   );
