@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Card } from 'components/UI/Card';
 import { Modal } from 'components/UI/Modal';
 import { Coin } from 'components/coin/Coin';
-import classes from 'components/coin/coinList/CoinItem.module.css';
+import classes from 'components/coin/coinList/CoinItem.module.scss';
 
 interface InterfaceCoinItemProps {
   children?: React.ReactNode;

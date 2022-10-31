@@ -1,4 +1,4 @@
-import classes from 'components/UI/Button.module.css';
+import classes from 'components/UI/Button.module.scss';
 import clsx from 'clsx';
 
 interface InterfaceButtonProps

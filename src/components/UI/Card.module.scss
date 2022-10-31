@@ -1,3 +1,4 @@
+@import '/src/variables.scss';
 .card {
   display: flex;
   flex-direction: column;
@@ -7,8 +8,8 @@
   height: 150px;
   width: auto;
   max-width: 150px;
-  background-color: #fff;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+  background-color: $bg-main-color;
+  box-shadow: $box-shadow-properties;
   overflow: hidden;
   transition: 0.2s;
 }

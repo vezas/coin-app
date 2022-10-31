@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Oval } from 'react-loader-spinner';
-import classes from 'components/coin/Coin.module.css';
+import classes from 'components/coin/Coin.module.scss';
 import { coinGeckoApi } from 'services/api.service';
 
 interface InterfaceCoinProps {

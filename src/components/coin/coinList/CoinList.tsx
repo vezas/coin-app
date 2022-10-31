@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Oval } from 'react-loader-spinner';
 import { CoinItem } from 'components/coin/coinList/CoinItem';
 import { coinGeckoApi } from 'services/api.service';
-import classes from 'components/coin/coinList/CoinList.module.css';
+import classes from 'components/coin/coinList/CoinList.module.scss';
 
 interface InterfaceCoinList {
   id: string;

@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import { Card } from 'components/UI/Card';
 import { Button } from 'components/UI/Button';
-import classes from 'components/UI/Modal.module.css';
+import classes from 'components/UI/Modal.module.scss';
 
 interface InterfaceModalProps {
   children: React.ReactNode;

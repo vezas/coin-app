@@ -1,4 +1,4 @@
-import classes from 'App.module.css';
+import classes from 'App.module.scss';
 import { CoinList } from 'components/coin/coinList/CoinList';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

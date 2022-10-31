@@ -1,4 +1,4 @@
-import classes from 'components/UI/Card.module.css';
+import classes from 'components/UI/Card.module.scss';
 import clsx from 'clsx';
 
 interface InterfaceCardProps {
