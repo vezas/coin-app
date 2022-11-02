@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, ChangeEventHandler, useState } from 'react';
 import { Card } from 'components/UI/Card';
 import { Coin } from 'components/coin/Coin';
 import { Button } from 'components/UI/Button';
@@ -24,10 +24,18 @@ export const CoinItem: React.FC<InterfaceCoinItemProps> = ({ name, url, currentP
     setIsModal(true);
   };
 
+  const onKeyPress = (e: React.KeyboardEvent) => {
+    const enterOrSpace = e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar';
+    if (enterOrSpace) {
+      e.preventDefault();
+      displayCoinInfo();
+    }
+  };
+
   return (
     <React.Fragment>
       <li>
-        <Card className={classes.coinItem} onClick={displayCoinInfo}>
+        <Card onKeyPress={onKeyPress} className={classes.coinItem} onClick={displayCoinInfo}>
           <img className={classes.coinItem__logo} src={url} alt='Logo.' />
           <h1 className={classes.coinItem__title}>{name}</h1>
           <h3 className={classes.coinItem__price}>{currentPrice} $</h3>

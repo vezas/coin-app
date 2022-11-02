@@ -5,11 +5,23 @@ interface InterfaceCardProps {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  onKeyPress: (event: React.KeyboardEvent) => void;
 }
 
-export const Card: React.FC<InterfaceCardProps> = ({ children, className, onClick }) => {
+export const Card: React.FC<InterfaceCardProps> = ({
+  children,
+  className,
+  onClick,
+  onKeyPress
+}) => {
   return (
-    <div onClick={onClick} className={clsx([classes.card], [className])}>
+    <div
+      onKeyPress={onKeyPress}
+      tabIndex={0}
+      role='button'
+      onClick={onClick}
+      className={clsx([classes.card], [className])}
+    >
       {children}
     </div>
   );
