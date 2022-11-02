@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Card } from 'components/UI/Card';
-import { Modal } from 'components/UI/Modal';
 import { Coin } from 'components/coin/Coin';
+import { Button } from 'components/UI/Button';
+import ReactModal from 'react-modal';
 import classes from 'components/coin/coinList/CoinItem.module.scss';
 
 interface InterfaceCoinItemProps {
@@ -15,7 +16,7 @@ interface InterfaceCoinItemProps {
 export const CoinItem: React.FC<InterfaceCoinItemProps> = ({ name, url, currentPrice, id }) => {
   const [isModal, setIsModal] = useState(false);
 
-  const onClick = () => {
+  const closeModal = () => {
     setIsModal(false);
   };
 
@@ -33,9 +34,20 @@ export const CoinItem: React.FC<InterfaceCoinItemProps> = ({ name, url, currentP
         </Card>
       </li>
       {isModal && (
-        <Modal onClick={onClick}>
+        <ReactModal
+          //eslint-disable-next-line
+          //parentSelector={() => document.getElementById('modal-root')!}
+          overlayClassName={classes.Overlay}
+          onRequestClose={closeModal}
+          className={classes.ReactModal}
+          isOpen={isModal}
+          ariaHideApp={false}
+        >
           <Coin id={id} />
-        </Modal>
+          <Button onClick={closeModal} type='button'>
+            Close
+          </Button>
+        </ReactModal>
       )}
     </React.Fragment>
   );
