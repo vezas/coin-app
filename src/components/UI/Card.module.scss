@@ -1,0 +1,15 @@
+@import '/src/variables.scss';
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  height: 150px;
+  width: auto;
+  max-width: 150px;
+  background-color: $bg-main-color;
+  box-shadow: $box-shadow-properties;
+  overflow: hidden;
+  transition: 0.2s;
+}

@@ -1,0 +1,23 @@
+.coin {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  background-color: transparent;
+  &__logo {
+    position: absolute;
+    top: 5%;
+    display: block;
+    width: 120px;
+  }
+  &__title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  &__price {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,19 @@
+@import '/src/components/UI/ReactModal.module.scss';
+.coinItem {
+  justify-content: space-around;
+  cursor: pointer;
+  width: 150px;
+  &__logo {
+    height: 6vh;
+  }
+  &__title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  &__price {
+    font-size: 1.3rem;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
+}
